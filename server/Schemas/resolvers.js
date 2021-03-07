@@ -6,10 +6,8 @@ const resolvers = {
   Query: {
     me: async (parent, args, context) => {
       if (context.user) {
-        const userData = await User.findOne({ _id: context.user._id }, { username: context.user })
+        const userData = await User.findOne({ _id: context.user._id })
           .select('__v -password')
-          .populate('bookCount')
-          .populate('savedBooks');
 
         return userData;
       }
@@ -20,10 +18,10 @@ const resolvers = {
     createUser: async (parent, args) => {
       const user = await User.create(args);
       const token = signToken(user);
-      return user;
+      return { token, user };
     },
-    login: async (parent, { username, email, password }) => {
-      const user = await User.findOne({ username, email });
+    login: async (parent, { email, password }) => {
+      const user = await User.findOne({ email });
       if (!user) {
         throw new Authentication('Incorrect credentials')
       }
@@ -34,22 +32,22 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    saveBook: async (parent, { user, body }, context) => {
+    saveBook: async (parent, { input }, context) => {
       if (context.user) {
-        const updateUser = await User.findOneAndUpdate(
-          { _id: user._id },
-          { $addToSet: { savedBooks: body } },
-          { new: true, runValidators: true }
+        const updateUser = await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { savedBooks: input } },
+          { new: true }
         );
         return updateUser;
       }
       throw new AuthenticationError('You need to be logged in');
     },
-    deleteBook: async (parent, { user, bookId }, context) => {
+    deleteBook: async (parent, args, context) => {
       if (context.user) {
         const updateUser = await User.findOneAndUpdate(
-          { _id: user._id },
-          { $pull: { savedBooks: { bookId } } },
+          { _id: context.user._id },
+          { $pull: { savedBooks: { bookId: args.bookId } } },
           { new: true }
         );
         return updateUser;
