@@ -7,9 +7,9 @@ import { ApolloProvider } from '@apollo/client';
 import ApolloClient from 'apollo-boost'
 
 const client = new ApolloClient({
-  req: op => {
+  request: operation => {
     const token = localStorage.getItem('id_token')
-    op.setContext({
+    operation.setContext({
       headers: {
         authorization: token ? `Bearer ${token}` : ''
       }
