@@ -13,7 +13,7 @@ Google Books API search engine built with a RESTful API, and refactored to be a 
 
 ## Tech
 
-HTML, CSS, Javascript, React, 
+HTML, CSS, Javascript, React, Express, Node and MongoDB
 
 ## Deployed Application
 
