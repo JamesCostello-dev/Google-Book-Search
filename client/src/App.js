@@ -3,23 +3,24 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import SearchBooks from './pages/SearchBooks';
 import SavedBooks from './pages/SavedBooks';
 import Navbar from './components/Navbar';
-import { ApolloServer, ApolloClient } from '@apollo/client';
+import { ApolloProvider } from '@apollo/client';
+import ApolloClient from 'apollo-boost'
 
 const client = new ApolloClient({
   req: op => {
     const token = localStorage.getItem('id_token')
-    op.setCount({
+    op.setContext({
       headers: {
         authorization: token ? `Bearer ${token}` : ''
       }
     })
   },
-  uri: 'graphql'
+  uri: '/graphql'
 });
 
 function App() {
   return (
-    <ApolloClient client={client}>
+    <ApolloProvider client={client}>
       <Router>
         <>
           <Navbar />
@@ -30,7 +31,7 @@ function App() {
           </Switch>
         </>
       </Router>
-    </ApolloClient>
+    </ApolloProvider>
   );
 }
 
