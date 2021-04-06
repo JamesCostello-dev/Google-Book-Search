@@ -2,7 +2,7 @@
 
 ## Description
 
-Google Books API search engine built with a RESTful API, and refactored to be a GraphQL API built with Apollo Server. 
+Google Book Search is MERN application using Google Books API built with GraphQL and Apollo Server.
 
 ## Table of Contents:
 
