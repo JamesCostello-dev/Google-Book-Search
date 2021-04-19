@@ -34,6 +34,10 @@ Google Book Search is MERN application using Google Books API built with GraphQL
 
 `npm start`
 
+Note:
+
+Make sure MongoDB is running on your system.
+
 ## Deployed Application
 
 [Deployed Link](https://blooming-refuge-93954.herokuapp.com/)
