@@ -1,8 +1,8 @@
-# MERN Book Search Engine
+# Google Book Search
 
 ## Description
 
-Google Book Search is MERN application using Google Books API built with GraphQL and Apollo Server.
+Google Book Search is full stack MERN application using Google Books API built with GraphQL and Apollo Server.  Allows users to search Google Books API and save their favorite books to a database.  
 
 ## Table of Contents:
 
