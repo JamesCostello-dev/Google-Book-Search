@@ -7,13 +7,32 @@ Google Book Search is MERN application using Google Books API built with GraphQL
 ## Table of Contents:
 
 - [Description](#description)
-- [Built With](#built-with)
-- [Deployed](#repository)
+- [Tech](#tech)
+- [Install](#install)
+- [Deployed Application](#deployed-application)
 - [License](#license)
 
 ## Tech
 
-HTML, CSS, Javascript, React, Express, Node and MongoDB
+* HTML
+* CSS 
+* JavaScript
+* React
+* Express
+* Node
+* MongoDB
+
+## Install
+
+`open terminal`
+
+`git clone git@github.com:JamesCostello-dev/Google-Book-Search.git`
+
+`cd Google-Book-Search`
+
+`npm install`
+
+`npm start`
 
 ## Deployed Application
 
