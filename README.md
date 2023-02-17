@@ -40,7 +40,7 @@ Make sure MongoDB is running on your system.
 
 ## Deployed Application
 
-[View Google Book Search](https://blooming-refuge-93954.herokuapp.com/)
+[View Google Book Search](https://book-search-31e8c.web.app)
 
 ## Media
 
